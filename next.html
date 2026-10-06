@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>·</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{height:100%;}
+  body{
+    min-height:100vh;
+    background:#000;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,"PingFang SC","Microsoft YaHei",sans-serif;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:40px 24px;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .box{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:34px;
+    max-width:560px;
+    width:100%;
+  }
+
+  .title{
+    font-size:12px;
+    letter-spacing:6px;
+    color:#333;
+    text-transform:uppercase;
+    user-select:none;
+  }
+
+  /* 摩斯电码 */
+  .morse{
+    font-family:"SF Mono",Menlo,Consolas,"Courier New",monospace;
+    font-size:17px;
+    line-height:2;
+    letter-spacing:2px;
+    color:#8a8a8a;
+    text-align:center;
+    word-break:break-word;
+    user-select:text;
+    padding:0 8px;
+  }
+
+  .download{
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+    padding:18px 34px;
+    background:#0a0a0a;
+    border:1px solid #1f1f1f;
+    border-radius:14px;
+    color:#7a7a7a;
+    font-size:15px;
+    font-family:inherit;
+    text-decoration:none;
+    cursor:pointer;
+    user-select:none;
+    -webkit-tap-highlight-color:transparent;
+    transition:background .2s ease, border-color .2s ease, color .2s ease, transform .1s ease, box-shadow .2s ease;
+  }
+
+  .download:hover{
+    background:#141414;
+    border-color:#333;
+    color:#d0d0d0;
+    box-shadow:0 0 30px -10px rgba(255,255,255,.14);
+  }
+
+  .download:active{transform:scale(.97);}
+
+  .download:focus-visible{
+    outline:1px solid #3a3a3a;
+    outline-offset:3px;
+  }
+
+  .download svg{
+    width:18px;height:18px;flex:none;
+    stroke:currentColor;fill:none;
+    stroke-width:1.7;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+    transition:transform .25s ease;
+  }
+
+  .download:hover svg{transform:translateY(2px);}
+
+  @media (max-width:420px){
+    .morse{font-size:15px;letter-spacing:1px;}
+    .download{padding:16px 26px;font-size:14px;}
+  }
+</style>
+</head>
+<body>
+
+  <div class="box">
+    <div class="title">·</div>
+
+    <!-- 摩斯电码：显示在页面上 -->
+    <div class="morse">-. .. / --.- ..- / -.- .- -. / -.- .- -. / .... - -- .-.. / -. .</div>
+
+    <!-- 把 href 改成你要下载的文件名即可 -->
+    <a class="download" id="dl" href="我想说的话.txt" download>
+      <svg viewBox="0 0 24 24">
+        <path d="M12 3v13"/>
+        <path d="M6.5 10.5 12 16l5.5-5.5"/>
+        <path d="M4 20h16"/>
+      </svg>
+      <span>下载文件</span>
+    </a>
+  </div>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ====== 只需要改这里 ====== */
+  const FILE_NAME = '文件.txt';   // 目录下要下载的文件名
+  /* ========================= */
+
+  const dl = document.getElementById('dl');
+  dl.setAttribute('href', FILE_NAME);
+  dl.setAttribute('download', FILE_NAME);
+})();
+</script>
+
+<!--
+5oiR6KeJ5b6X6L+Z5b6I5oSa6KCi77yM5L2G5piv5a+G56CB5piv77yaemhlbnlp5ZWK5LiA5ZOh
+-->
+
+</body>
+</html>
